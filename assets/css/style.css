@@ -4,13 +4,21 @@ body {
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+}
+
+/* Update Bootstrap columns to remove padding */
+.col-md-2,
+.col-md-9,
+.col-md-1 {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .jumbotron {
@@ -21,19 +29,45 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
-.time-block{
+/* Bootstrap row */
+.row {
+  margin-bottom: 2px;
+}
+
+/* Replace Bootstrap row after definition for record keeping */
+.nonBootstrapRow {
+  white-space: pre-wrap;
+  height: 80px;
+  border-top: 1px solid white;
+}
+
+/* Style for hourlyColumn */
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
 
-.row {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
+/* Input element style takes all space of parent element */
+.taskDescriptionSpan {
+  color: black;
+  font-size: 12pt;
+  height: 100%;
+  width: 100%;
+}
+
+/* Style to remove input borders */
+input {
+  background-color: transparent;
+  border: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: #0066ff solid 1px;
 }
 
 .hour {
@@ -63,9 +97,63 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  /* Button center aligned */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: all 2s ease-in-out;
+}
+
+.btn-save {
+  align-self: center;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .saveBtn {
+    border-left: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 25px;
+  }
+
+  /* Animations off on small screen devices */
+  * {
+    /* Transitions */
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /* Transforms */
+    -o-transform: none !important;
+    ;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /* Animations */
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+
+/* Applied to any screen smaller than 575px */
+@media screen and (max-width: 575px) {
+  .nonBootstrapRow {
+    border-bottom: 1.5px solid black;
+  }
 }
