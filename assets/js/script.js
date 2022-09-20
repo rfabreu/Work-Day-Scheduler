@@ -40,7 +40,7 @@ $(document).ready(function () {
 
             $columnHour.text(columnHourly);
 
-            let $description = $("<div></div>")
+            let $descriptionColumn = $("<div></div>")
                 .addClass("col-md-9");
 
             let $descriptionColumnSpan = $("<input></input>")
