@@ -10,7 +10,7 @@ $(document).ready(function () {
         return momentHour;
     }
 
-    let $dailyContainer = $('dailyContainer');
+    let $dailyContainer = $('#dailyContainer');
 
     function createGridSystem() {
         for (var hourOfDay = 9; hourOfDay <= 17; hourOfDay++) {
