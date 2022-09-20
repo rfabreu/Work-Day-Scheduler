@@ -97,4 +97,20 @@ $(document).ready(function () {
             }
         };
     };
-})
+
+    $(document).on('click', 'i', function (event) {
+        event.preventDefault();
+
+        let $localStorageIndex = $(this).attr('save-id');
+
+        taskDescArr[$localStorageIndex] = $("#input-" + $localStorageIndex).val();
+
+        $("#input-" + $localStorageIndex).css("outline: #4CAF50 solid 10px");
+        localStorage.setItem("dailyTasks", JSON.stringify(taskDescArr));
+    });
+
+    getMomentNow();
+    getTaskDetails();
+    createGridSystem();
+    taskRowColor();
+});
