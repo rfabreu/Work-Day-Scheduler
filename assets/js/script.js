@@ -68,4 +68,33 @@ $(document).ready(function () {
             $dailyContainer.append($rowContainer);
         };
     };
+
+    function getTaskDetails() {
+        let localStorageTasks = JSON.parse(localStorage.getItem("dailyTasks"));
+
+        if (localStorageTasks === null) {
+            taskDescArr = new Array(9);
+        } else {
+            taskDescArr = localStorageTasks;
+            console.log("Values in localStorage are: " + taskDescArr);
+        };
+    };
+
+    function taskRowColor() {
+        momentHour = getMomentNow()
+
+        for (var i = 0; i < 9; i++) {
+            let hourIndex = $("#input-" + i).attr("hour-index");
+            hourIndex = Number(hourIndex);
+            hourIndex += 9;
+
+            if (hourIndex < momentHour) {
+                $("#input-" + 1).css("background-color", "lightgrey");
+            } else if (hourIndex > momentHour) {
+                $("#input-" + i).css("background-color", "#77dd77");
+            } else {
+                $("input-" + i).css("background-color", "#ff6961");
+            }
+        };
+    };
 })
